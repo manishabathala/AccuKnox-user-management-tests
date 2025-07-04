@@ -11,7 +11,7 @@ test.beforeEach(async({page})=>{
 test('Validate Updated User By UserName',async({page})=>{
     const adminpage=new Orange_AdminPage(page)
     await adminpage.searchUserByUserName(data.updatedUser.username)
-    //await expect(page.locator("//span[normalize-space()='(1) Record Found']")).toBeVisible()
+    await expect(page.locator("//span[normalize-space()='(1) Record Found']")).toBeVisible()
     const userRow = page.locator(`//div[@role='row' and .//div[contains(text(), "${data.updatedUser.username}")]]`)
     await expect(userRow).toBeVisible();
 
